@@ -1,1 +1,1 @@
-# cssd-ecommerce
+# cssd-ecommerce - a collaborative shopping platform
