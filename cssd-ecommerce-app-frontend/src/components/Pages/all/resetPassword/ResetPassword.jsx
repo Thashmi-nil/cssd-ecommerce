@@ -13,7 +13,7 @@ import ResetImage from "../../../../images/resetPassword.jpg"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
-import '../../all/resetPassword/ResetPassword.css'
+import './ResetPassword.css'
 
 
 const ResetPassword = ({ loading, error, ...props }) => {
