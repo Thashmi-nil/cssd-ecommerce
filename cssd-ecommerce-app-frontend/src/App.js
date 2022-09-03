@@ -3,11 +3,11 @@ import { Navbar } from './components/Pages/all/LandingPage/Navbar';
 import { Header } from './components/Pages/all/LandingPage/Header';
 
 
-// import Registration from './Components/Pages/all/registrationPage/Registration';
+import Registration from './components/Pages/all/registrationPage/Registration';
 // import Sidebar from './Components/Utilities/Sidebar/Sidebar';
 // import PictureUploader from './Components/Utilities/Form/PictureUploader/PictureUploader';
-// import Login from './Components/Pages/all/loginPage/LoginPage';
-// import ResetPassword from './Components/Pages/all/resetPassword/ResetPassword';
+import Login from './components/Pages/all/loginPage/LoginPage';
+import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
 // import PieChart from './Components/Utilities/Charts/PieChart';
 // import BarChart from './Components/Utilities/Charts/BarChart';
 // import LineChart from './Components/Utilities/Charts/LineChart';
@@ -30,7 +30,7 @@ import { Header } from './components/Pages/all/LandingPage/Header';
 // import AnalyticsS from './Components/Pages/seller/sell_analytics/Analytics';
 
 import './App.css';
-// import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -45,10 +45,10 @@ function App() {
 
           {/* ALL ROUTES */}
           <Route exact path="/" element={<Home />}></Route>
-          {/* <Route path="/registration" element={<Registration />}></Route>
+          <Route path="/registration" element={<Registration />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/resetpasswd" element={<ResetPassword />}></Route>
-          <Route path="/searchBar" element={<SearchBar />}></Route>
+          {/* <Route path="/searchBar" element={<SearchBar />}></Route>
           <Route path="/alert" element={<Alert />}></Route>
           <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="/samplecal" element={<SampleCal />}></Route>

@@ -27,7 +27,7 @@ export const Navbar = () => {
                 <span className='nav-icon'></span>
             </label>
             <ul className='menu'>
-                
+
                 <li><a href='/login' smooth={true} duration={1000}>Login</a></li>
             </ul>
         </nav>

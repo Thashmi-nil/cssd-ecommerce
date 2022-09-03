@@ -12,9 +12,9 @@ export const Header = () => {
         {/* <h1><span>SUCCESS</span></h1> */}
         {/* <p className='details'>Build Your Body And Fitness With Professional Touch</p> */}
         <div className='header-btns'>
-          <Link to='/registration'>
-            <a href="#" style={{ textDecoration: 'none' }} className='header-btn'>SIGN UP</a>
-          </Link>
+          {/* <Link to='/registration'> */}
+          <a href="/registration" style={{ textDecoration: 'none' }} className='header-btn'>SIGN UP</a>
+          {/* </Link> */}
         </div>
       </div>
     </div>
