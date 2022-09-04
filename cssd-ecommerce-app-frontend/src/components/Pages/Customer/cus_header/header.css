@@ -1,0 +1,47 @@
+.Heading{grid-area: header;}
+.profile{grid-area: profile;}
+.Headr{
+    margin-bottom: 30px;
+    margin-top: 25px;
+    padding-left: 20px;
+    width: 1250px;
+}
+.Head{
+    display: flex;
+    justify-content: space-between;  
+}
+.Heading{   
+    padding-right: 20px;
+}
+.profile{
+    width: 250px;
+    background-color: white;
+    border-radius: 25px;
+    height: 50px;
+    display: flex;  
+}
+#profile-pic{
+    width: 65px;
+}
+
+.profileDetails{
+    padding: 5px;
+   padding-left: 15px;
+   text-align: left;
+    
+}
+
+#name{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#level{
+    font-size: 12px;
+    font-weight: 500;
+    
+}
+#heading{
+    font-weight: 600!important;
+    font-size: 2rem!important;
+}
