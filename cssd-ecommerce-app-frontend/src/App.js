@@ -6,7 +6,7 @@ import { Header } from './components/Pages/all/LandingPage/Header';
 import Registration from './components/Pages/all/registrationPage/Registration';
 // import Sidebar from './Components/Utilities/Sidebar/Sidebar';
 // import PictureUploader from './Components/Utilities/Form/PictureUploader/PictureUploader';
-import Login from './components/Pages/all/loginPage/LoginPage';
+import Login from './components/Pages/all/LoginPage/LoginPage';
 import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
 // import PieChart from './Components/Utilities/Charts/PieChart';
 // import BarChart from './Components/Utilities/Charts/BarChart';
@@ -19,10 +19,12 @@ import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
 
 
 // CUSTOMER
-// import SidebarC from './Components/Pages/customer/cus_sidebar/Sidebar';
-// import DashboardC from './Components/Pages/customer/cus_dashboard/Dashboard';
-// import UsersC from './Components/Pages/customer/cus_users/Users';
-// import SellersC from './Components/Pages/customer/cus_sellers/Sellers';
+// import SidebarC from './Components/Pages/Customer/cus_sidebar/Sidebar';
+// import DashboardC from './Components/Pages/Customer/cus_dashboard/Dashboard';
+// import UsersC from './Components/Pages/Customer/cus_systemLogs/SystemLogs';
+import Dashboard from './components/Pages/Customer/cus_dashboard/Dashboard';
+import UsersC from './components/Pages/Customer/cus_users/Users'
+// import SellersC from './Components/Pages/Customer/cus_sellers/Sellers';
 
 // SELLER
 // import TrainerS from './Components/Pages/seller/sell_trainers/Trainers';
@@ -56,9 +58,9 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route> */}
 
           {/* CUSTOMER ROUTES */}
-          {/* <Route path="/Cdashboard" element={<DashboardC />}></Route>
+          <Route path="/Cdashboard" element={<Dashboard />}></Route>
           <Route path="/Cusers" element={<UsersC />}></Route>
-          <Route path="/Csellers" element={<SellersC />}></Route> */}
+          {/* <Route path="/Csellers" element={<SellersC />}></Route> */}
 
           {/* SELLER ROUTES */}
           {/* <Route path="/Strainers" element={<TrainerS />}></Route>

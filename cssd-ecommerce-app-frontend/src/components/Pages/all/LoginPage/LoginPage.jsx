@@ -30,7 +30,7 @@ const LoginPage = ({ loading, error, ...props }) => {
 
         var userLevel = res.data.userLevel;
 
-        if (userLevel === "Admin") {
+        if (userLevel === "customer") {
             window.location.href = "/Cdashboard";
             toast.success('successful');
         } else if (userLevel === "Owner") {
