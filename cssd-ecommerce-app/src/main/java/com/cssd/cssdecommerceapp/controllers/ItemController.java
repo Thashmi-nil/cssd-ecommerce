@@ -16,10 +16,7 @@ public class ItemController {
 
     @Autowired
     ItemService itemService;
-    @GetMapping("/test")
-    public String test(){
-        return "Hello!";
-    }
+    
 //    @GetMapping("/getItems")
 //    public List<Item> getAllUsers(){
 //        return itemService.getItems();
