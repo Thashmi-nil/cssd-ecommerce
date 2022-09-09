@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 @Table(name = "customer")
 @Entity
@@ -49,6 +50,9 @@ public class Customer implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
     UserAccount userAccount;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
