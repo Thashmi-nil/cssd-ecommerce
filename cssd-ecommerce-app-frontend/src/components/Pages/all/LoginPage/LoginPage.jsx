@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom'
 
-import ResetPassword from '../ResetPassword/ResetPassword';
+import ResetPassword from '../resetPassword/ResetPassword';
 
 import Button from '../../../Utilities/Form/Button';
 import InputField from "../../../Utilities/Form/InputField";
@@ -33,7 +33,7 @@ const LoginPage = ({ loading, error, ...props }) => {
         if (userLevel === "customer") {
             window.location.href = "/Cdashboard";
             toast.success('successful');
-        } else if (userLevel === "Owner") {
+        } else if (userLevel === "seller") {
             window.location.href = "/Sdashboard";
         } else {
             localStorage.clear();
