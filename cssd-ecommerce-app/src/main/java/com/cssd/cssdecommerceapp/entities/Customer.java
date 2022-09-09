@@ -54,6 +54,9 @@ public class Customer implements UserDetails {
     @OneToMany(mappedBy = "customer")
     private Set<Order> orders;
 
+    @OneToMany(mappedBy = "customer")
+    Set<CartItems> items;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
