@@ -24,7 +24,7 @@ const SystemLog = () => {
     <div className='main-container'>
       <SidebarO />
       <div className='body-container'>
-        <HeaderO title="Users" />
+        <HeaderO title="Orders" />
         <div className="content-container">
    
         </div>
