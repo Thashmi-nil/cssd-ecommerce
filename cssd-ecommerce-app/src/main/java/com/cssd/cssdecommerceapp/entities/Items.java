@@ -31,6 +31,9 @@ public class Items implements UserDetails {
     @OneToMany(mappedBy = "item")
     Set<CartItems> carts;
 
+    @OneToMany(mappedBy = "item")
+    Set<OrderItems> orders;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -106,4 +109,22 @@ public class Items implements UserDetails {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public Set<CartItems> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<CartItems> carts) {
+        this.carts = carts;
+    }
+
+    public Set<OrderItems> getOrders() {
+        return orders;
+    }
+
+    public void setPurchases(Set<OrderItems> orders) {
+        this.orders = orders;
+    }
+
+
 }
