@@ -1,5 +1,7 @@
 package com.cssd.cssdecommerceapp.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,7 +10,7 @@ import java.util.Date;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "paymentID")
+    @Column(name = "payment_id")
     private long id;
 
     @Column(name = "amount")
@@ -18,7 +20,12 @@ public class Payment {
     private String type;
 
     @Column(name = "date")
+    @CreationTimestamp
     private Date date;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    Order order;
 
 
     public void setId(long id) {
@@ -55,4 +62,11 @@ public class Payment {
         return date;
     }
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }

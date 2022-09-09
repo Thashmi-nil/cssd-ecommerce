@@ -81,7 +81,7 @@ public class SignUpService {
                     "Your have successfully registered as a customer. \n";
 
             message.setText(mainContent +"Your Password : "+ pw + "\n" + "Your Username : "+customer.getFirstName());
-            message.setSubject("Welcome to the GYM C!");
+            message.setSubject("Welcome to the CSSS E-COMMERCE");
 
             mailSender.send(message);
 

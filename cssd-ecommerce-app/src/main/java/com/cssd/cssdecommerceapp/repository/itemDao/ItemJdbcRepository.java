@@ -18,30 +18,26 @@ public class ItemJdbcRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
     public List<Item> getItems() {
-        String query ="SELECT a.*,u.first_name,u.last_name,auth.role_code as role " +
-                "FROM announcement as a " +
-                "INNER JOIN user as u ON a.user_id = u.id " +
-                "INNER JOIN user_authority as ua ON u.id = ua.user_id " +
-                "INNER JOIN authority as auth ON auth.id = ua.user_id ORDER BY date DESC";
+        String query ="SELECT * from items where deleted=0";
 
-        List<Item> announcementWithAuthor = jdbc.query(query, new BeanPropertyRowMapper<Item>(Item.class));
-        return announcementWithAuthor;
+        List<Item> items = jdbc.query(query, new BeanPropertyRowMapper<Item>(Item.class));
+        return items;
     }
 
     public long addItem(Item item) {
         MapSqlParameterSource namedParameters =
                 new MapSqlParameterSource();
-        String query = "INSERT INTO item " +
-                "(category, content,date, title,user_id) " +
-                "values (:category, :content, :date, :title, :user_id )";
+        String query = "INSERT INTO items " +
+                "(item_description, item_name,item_type,price,deleted) " +
+                "values (:item_description, :item_name, :item_type, :price, 0 )";
+        System.out.println(item.getItemDescription());
+        namedParameters.addValue("item_description", item.getItemDescription());
+        namedParameters.addValue("item_name", item.getItemName());
+        namedParameters.addValue("item_type", item.getItemType());
+        namedParameters.addValue("price", item.getPrice());
 
-//        namedParameters.addValue("category", item.getCategory());
-//        namedParameters.addValue("content", item.getContent());
-//        namedParameters.addValue("date", LocalDateTime.now());
-//        namedParameters.addValue("title", item.getTitle());
-//        namedParameters.addValue("user_id", item.getUserId());
 
-        int rowsAffected = jdbc.update(query , namedParameters);
+        int rowsAffected =jdbc.update(query , namedParameters);
         return rowsAffected;
     }
 
@@ -50,23 +46,24 @@ public class ItemJdbcRepository {
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         namedParameters.addValue("id", id);
 
-        String query = "Delete FROM item where ann_id = :id;";
+        String query = "Update items set deleted=1 where itemid = :id;";
 
         return jdbc.update(query, namedParameters);
 
     }
 
-    public long editItem(Item item) {
+    public long updateItem(Item item) {
         MapSqlParameterSource namedParameters =
                 new MapSqlParameterSource();
-        String update = "UPDATE announcement " +
-                "SET title = :title, content = :content, category= :category, date= :date WHERE ann_id = :id;";
+        String update = "UPDATE items " +
+                "SET item_description = :item_description, item_name = :item_name, item_type= :item_type, price= :price " +
+                "WHERE itemid = :id;";
 
-//        namedParameters.addValue("title", item.getName());
-//        namedParameters.addValue("content", item.);
-//        namedParameters.addValue("category", item.getCategory());
-//        namedParameters.addValue("date", item.getDate());
-//        namedParameters.addValue("id", item.getAnnId());
+        namedParameters.addValue("item_description", item.getItemDescription());
+        namedParameters.addValue("item_name", item.getItemName());
+        namedParameters.addValue("item_type", item.getItemType());
+        namedParameters.addValue("price", item.getPrice());
+        namedParameters.addValue("id", item.getItemId());
 
         int rowsAffected = jdbc.update(update, namedParameters);
         return rowsAffected;
