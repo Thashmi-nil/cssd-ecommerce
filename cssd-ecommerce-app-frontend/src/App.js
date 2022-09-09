@@ -15,7 +15,7 @@ import ResetPassword from './components/Pages/all/ResetPassword/ResetPassword';
 
 // CUSTOMER
 import Dashboard from './components/Pages/Customer/cus_dashboard/Dashboard';
-import UsersC from './components/Pages/Customer/cus_users/Users'
+import UsersC from './components/Pages/Customer/cus_orders/Orders'
 
 
 // SELLER

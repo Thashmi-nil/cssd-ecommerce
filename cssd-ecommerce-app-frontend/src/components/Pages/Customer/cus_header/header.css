@@ -16,12 +16,13 @@
 .profile{
     width: 250px;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 25px!important;
     height: 50px;
     display: flex;  
 }
 #profile-pic{
     width: 65px;
+    border-radius: 25px!important;
 }
 
 .profileDetails{
