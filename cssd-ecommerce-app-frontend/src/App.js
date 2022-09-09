@@ -3,9 +3,9 @@ import { Navbar } from './components/Pages/all/LandingPage/Navbar';
 import { Header } from './components/Pages/all/LandingPage/Header';
 
 
-import Registration from './components/Pages/all/registrationPage/Registration';
-import Login from './components/Pages/all/loginPage/LoginPage';
-import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
+import Registration from './components/Pages/all/RegistrationPage/Registration';
+import Login from './components/Pages/all/LoginPage/LoginPage';
+import ResetPassword from './components/Pages/all/ResetPassword/ResetPassword';
 // import PieChart from './Components/Utilities/Charts/PieChart';
 // import BarChart from './Components/Utilities/Charts/BarChart';
 // import LineChart from './Components/Utilities/Charts/LineChart';

@@ -2,6 +2,7 @@ package com.cssd.cssdecommerceapp.controllers;
 
 import com.cssd.cssdecommerceapp.dto.Password;
 import com.cssd.cssdecommerceapp.dto.Profile;
+import com.cssd.cssdecommerceapp.entities.Item;
 import com.cssd.cssdecommerceapp.entities.UserAccount;
 import com.cssd.cssdecommerceapp.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,10 @@ public class ItemController {
 //        return itemService.addItem(item);
 //    }
 //
-//    @PutMapping("/updateItem")
-//    public long changePassword(@RequestBody Item item){
-//        return itemService.editItem(item);
-//    }
+    @PutMapping("/updateItem")
+    public long changePassword(@RequestBody Item item){
+        return itemService.editItem(item);
+    }
 //
 //    @DeleteMapping("/deleteItem/{id}")
 //    public long deleteItem(@PathVariable long id){

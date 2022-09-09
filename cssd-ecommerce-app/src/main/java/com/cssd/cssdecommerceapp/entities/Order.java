@@ -37,7 +37,7 @@ class OrderItems {
     @ManyToOne
     @MapsId("itemID")
     @JoinColumn(name="itemID")
-    Items item;
+    Item item;
 
     @Column(name="quantity")
     int quantity;
