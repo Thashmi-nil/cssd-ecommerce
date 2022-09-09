@@ -16,11 +16,11 @@ public class ItemService {
     }
 
     public long addItem(Item item) {
-        return itemJdbcRepository.editItem(item);
+        return itemJdbcRepository.addItem(item);
     }
 
-    public long editItem(Item item){
-        return itemJdbcRepository.editItem(item);
+    public long updateItem(Item item){
+        return itemJdbcRepository.updateItem(item);
     }
 
     public long deleteItem(long id){

@@ -9,24 +9,32 @@ import java.util.Set;
 
 @Table(name="items")
 @Entity
-public class Item implements UserDetails {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "itemID")
-    private long id;
+    @Column(name = "item_id")
+    private long itemId;
 
-    @Column(name="itemName")
-    private String name;
+    @Column(name="item_name")
+    private String itemName;
 
-    @Column(name="itemType")
-    private String type;
+    @Column(name="item_type")
+    private String itemType;
 
-    @Column(name = "itemDescription")
-    private String description;
+    @Column(name = "item_description")
+    private String itemDescription;
 
-    @Column(name = "itemImage")
-    private String image;
+    @Column(name = "item_image")
+    private String itemImage;
+
+    @Column(name = "deleted")
+    private long deleted;
+
+    @Column(name = "price")
+    private Double price;
+
+
 
     @OneToMany(mappedBy = "item")
     Set<CartItems> carts;
@@ -34,80 +42,52 @@ public class Item implements UserDetails {
     @OneToMany(mappedBy = "item")
     Set<OrderItems> orders;
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public long getItemId() {
+        return itemId;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
+    public void setItemId(long itemId) {
+        this.itemId = itemId;
     }
 
-    @Override
-    public String getUsername() {
-        return null;
+    public String getItemName() {
+        return itemName;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
+    public String getItemType() {
+        return itemType;
     }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return false;
+    public String getItemDescription() {
+        return itemDescription;
     }
 
-    public long getId() {
-        return id;
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getItemImage() {
+        return itemImage;
     }
 
-    public String getName() {
-        return name;
+    public void setItemImage(String itemImage) {
+        this.itemImage = itemImage;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Double getPrice() {
+        return price;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Set<CartItems> getCarts() {
@@ -122,7 +102,7 @@ public class Item implements UserDetails {
         return orders;
     }
 
-    public void setPurchases(Set<OrderItems> orders) {
+    public void setOrders(Set<OrderItems> orders) {
         this.orders = orders;
     }
 
