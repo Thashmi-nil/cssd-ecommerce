@@ -3,6 +3,8 @@ import '../cus_sidebar/Sidebar.css'
 import SidebarO from '../cus_sidebar/Sidebar'
 import HeaderO from '../cus_header/header'
 import './Dashboard.css'
+import kitkat from '../../../../images/items/kitkat.jpg'
+import AddtoCart from '../../../../images/addToCart.svg'
 
 const Dashboard = () => {
 
@@ -28,12 +30,41 @@ const Dashboard = () => {
 
             <div className='adm-dashboard-card adm-dashboard-profile-cards'>
               <div className='adm-dashboard-card-content'>
-                <div className='staffID'>Active Web Users</div>
-                <div className='staffName'>20</div>
+              <div className='adm-dashboard-card-img-container'>
+                <img src={kitkat} className='adm-dashboard-images' alt="" />
+              </div>
+                <div className='staffID'>Kitkat Milk Chocolate  </div>
+                <div className='staffName'>Rs. 650</div>
+                <div className='staffName'>The ChocoShop</div>
+                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
               </div>
             </div>
 
             <div className='adm-dashboard-card adm-dashboard-profile-cards'>
+              <div className='adm-dashboard-card-content'>
+              <div className='adm-dashboard-card-img-container'>
+                <img src={kitkat} className='adm-dashboard-images' alt="" />
+              </div>
+                <div className='staffID'>Kitkat Milk Chocolate  </div>
+                <div className='staffName'>Rs. 650</div>
+                <div className='staffName'>The ChocoShop</div>
+                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
+              </div>
+            </div>
+
+            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
+              <div className='adm-dashboard-card-content'>
+              <div className='adm-dashboard-card-img-container'>
+                <img src={kitkat} className='adm-dashboard-images' alt="" />
+              </div>
+                <div className='staffID'>Kitkat Milk Chocolate  </div>
+                <div className='staffName'>Rs. 650</div>
+                <div className='staffName'>The ChocoShop</div>
+                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
+              </div>
+            </div>
+
+            {/* <div className='adm-dashboard-card adm-dashboard-profile-cards'>
               <div className='adm-dashboard-card-content'>
                 <div className='staffID'>Active Mobile Users</div>
                 <div className='staffName'>24</div>
@@ -52,7 +83,7 @@ const Dashboard = () => {
                 <div className='staffID'>Payment Plans</div>
                 <div className='staffName'>3</div>
               </div>
-            </div>
+            </div> */}
 
             
 
