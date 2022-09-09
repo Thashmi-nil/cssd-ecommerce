@@ -26,7 +26,7 @@ export default function Registration() {
         address: '',
         email: '',
         phoneNumber: '',
-        emergencyNumber: '',
+        emergencyNumber: '0714558740',
         gender: '',
         message: '',
         acceptance: true,
@@ -74,7 +74,7 @@ export default function Registration() {
         console.log(requestData);
         evt.preventDefault();
 
-        if (!requestData.firstName || !requestData.lastName || !requestData.nic || !requestData.dob || !requestData.occupation || !requestData.address || !requestData.email || !requestData.phoneNumber || !requestData.emergencyNumber || !requestData.gender || requestData.acceptance == false) {
+        if (!requestData.firstName || !requestData.lastName || !requestData.nic || !requestData.dob || !requestData.occupation || !requestData.address || !requestData.email || !requestData.phoneNumber || !requestData.gender || requestData.acceptance == false) {
             console.log('Please fill out the form correctly');
             setClick({ click: true, })
             toast.warning('Please fill out the form correctly');
@@ -268,7 +268,7 @@ export default function Registration() {
                                     {!requestData.phoneNumber && click && <span className='text-danger'>This Field is required</span>}
                                 </div>
                                 <div className="reg-form-col2">
-                                    <InputField
+                                    {/* <InputField
                                         value={requestData.emergencyNumber}
                                         type='text'
                                         label="Emergency"
@@ -277,7 +277,7 @@ export default function Registration() {
                                             { check: Validators.number, message: 'Number is not valid' }
                                         ]}
                                         onChange={handleChange('emergencyNumber')} />
-                                    {!requestData.emergencyNumber && click && <span className='text-danger'>This Field is required</span>}
+                                    {!requestData.emergencyNumber && click && <span className='text-danger'>This Field is required</span>} */}
                                 </div>
                             </div>
 
