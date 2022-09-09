@@ -20,6 +20,10 @@ public class Payment {
     @Column(name = "date")
     private Date date;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "orderID")
+    Order orders;
+
 
     public void setId(long id) {
         this.id = id;
