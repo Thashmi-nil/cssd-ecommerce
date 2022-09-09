@@ -63,27 +63,7 @@ const Dashboard = () => {
                 <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
               </div>
             </div>
-
-            {/* <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-                <div className='staffID'>Active Mobile Users</div>
-                <div className='staffName'>24</div>
-              </div>
-            </div>
-
-            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-                <div className='staffID'>On hold accounts</div>
-                <div className='staffName'>11</div>
-              </div>
-            </div>
-
-            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-                <div className='staffID'>Payment Plans</div>
-                <div className='staffName'>3</div>
-              </div>
-            </div> */}
+            
 
             
 
