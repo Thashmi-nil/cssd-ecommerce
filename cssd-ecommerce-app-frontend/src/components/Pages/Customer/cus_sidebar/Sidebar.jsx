@@ -36,15 +36,16 @@ const Sidebar = ({ children }) => {
             icon: <FaTh />
         },
         {
-            path: "/Corders",
-            name: "Orders",
-            icon: <FaUserAlt />
-        },
-        {
             path: "/Ccart",
             name: "Cart",
             icon: <FaUserAlt />
         },
+        {
+            path: "/Corders",
+            name: "Orders",
+            icon: <FaUserAlt />
+        },
+        
         {
             path: "/",
             name: "Logout",

@@ -1,37 +1,120 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import '../cus_sidebar/Sidebar.css'
-import SidebarO from '../cus_sidebar/Sidebar'
-import HeaderO from '../cus_header/header'
+import SidebarS from '../cus_sidebar/Sidebar'
+import HeaderS from '../cus_header/header'
 import './Cart.css'
-import Button1 from '@mui/material/Button';
-import {FaDownload} from "react-icons/fa";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
-const SystemLog = () => {
+import MaterialTable from "material-table";
+import TableIcons from '../../../Utilities/Tables/ReactTableIcons'
 
-  useEffect(() => {
-    checkValidate();
-  }, []);
+export default function Orders() {
 
-  const checkValidate = async () => {
-    const y = localStorage.getItem("USER_KEY");
-    if (!y) {
-      window.location.href = "/";
-    }
-  };
+    useEffect(() => {
+        checkValidate();
+    }, []);
 
-  return (
-    <div className='main-container'>
-      <SidebarO />
-      <div className='body-container'>
-        <HeaderO title="Cart" />
-        <div className="content-container">
-   
-        </div>
+    const checkValidate = async () => {
+        const y = localStorage.getItem("USER_KEY");
+        if (!y) {
+            window.location.href = "/";
+        }
+    };
 
-      </div>
-    </div>
-  )
+    const [orderDetails] = useState([
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+        {
+            ItemID: "S001",
+            ItemName: "Item 01",
+            Price:"Rs. 550",
+            Seller: "The ChocoShop",
+        },
+
+    ]);
+    return (
+
+        <div className='main-container'>
+            <SidebarS />
+            <div className='body-container'>
+                <HeaderS title="Cart" />
+                <div className="content-container items">
+                    <div className="orders-table-container">
+                        <MaterialTable
+                            title="Cart"
+                            columns={[
+                                { title: "Item ID", field: "ItemID" },
+                                { title: "Item Name", field: "ItemName" },
+                                { title: "Price", field: "Price" },
+                                { title: "Seller", field: "Seller" },
+                            ]}
+                            icons={TableIcons}
+                            data={orderDetails}
+                            actions={[
+                               
+                                {
+                                    icon: () => {
+                                        return (
+                                            <button
+                                                type="button"
+                                                className="btn mt-0"
+                                                style={{
+                                                    backgroundColor: "#00FF00",
+                                                    border: "none",
+                                                }}
+                                            >
+                                                Delivered
+                                            </button>
+                                        );
+                                    },
+                                    onClick: (event, rowData) => {
+
+                                    },
+                                },
+
+                            ]}
+                            options={{
+                                headerStyle: {
+                                    backgroundColor: '#1F0106',
+                                    color: '#FFF',
+                                    hover: '#FFF'
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+            </div >
+        </div >
+    )
 }
-
-export default SystemLog

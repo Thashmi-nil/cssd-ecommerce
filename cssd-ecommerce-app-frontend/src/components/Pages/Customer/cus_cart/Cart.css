@@ -1,16 +1,10 @@
-.systemLog {
-    margin-top: 10px;
-    background-color: white;
-    height: 600px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    padding: 200px;
-    margin: 10px;
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.downloadButton {
-    padding-top: 20px;
+.orders-table-container {
+    height: 100%;
+    width: 100%;
 }
