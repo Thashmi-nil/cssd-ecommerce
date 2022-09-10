@@ -10,90 +10,29 @@ import java.util.Set;
 
 @Table
 @Entity
-public class Cart implements UserDetails {
+public class Cart{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cartID")
+    @Column(name = "cart_id")
     private long id;
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerID")
+    @JoinColumn(name = "customer_id")
     Customer customerID;
-
-//    @Column(name="quantity")
-//    private int quantity;
 
     @OneToMany(mappedBy = "cart")
     Set<CartItems> items;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Customer getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(Customer customerID) {
-        this.customerID = customerID;
-    }
-
-    public Set<CartItems> getItems() {
-        return items;
-    }
-
-    public void setItems(Set<CartItems> items) {
-        this.items = items;
-    }
 }
 
 @Embeddable
 class CartItemsKey implements Serializable{
-    @Column(name = "cartID")
+    @Column(name = "cart_id")
     Long cartID;
 
-    @Column(name = "itemID")
+    @Column(name = "item_id")
     Long itemID;
 }
 
@@ -103,14 +42,14 @@ class CartItems{
     CartItemsKey id;
 
     @ManyToOne
-    @MapsId("cartID")
-    @JoinColumn(name = "cartID")
+    @MapsId("cartId")
+    @JoinColumn(name = "cart_id")
     Cart cart;
 
     @ManyToOne
-    @MapsId("itemID")
-    @JoinColumn(name="itemID")
-    Items item;
+    @MapsId("itemId")
+    @JoinColumn(name="item_id")
+    Item item;
 
     @Column(name="quantity")
     int quantity;

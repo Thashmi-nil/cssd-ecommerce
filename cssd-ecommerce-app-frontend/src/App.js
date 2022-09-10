@@ -3,9 +3,9 @@ import { Navbar } from './components/Pages/all/LandingPage/Navbar';
 import { Header } from './components/Pages/all/LandingPage/Header';
 
 
-import Registration from './components/Pages/all/registrationPage/Registration';
-import Login from './components/Pages/all/loginPage/LoginPage';
-import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
+import Registration from './components/Pages/all/RegistrationPage/Registration';
+import Login from './components/Pages/all/LoginPage/LoginPage';
+import ResetPassword from './components/Pages/all/ResetPassword/ResetPassword';
 // import PieChart from './Components/Utilities/Charts/PieChart';
 // import BarChart from './Components/Utilities/Charts/BarChart';
 // import LineChart from './Components/Utilities/Charts/LineChart';
@@ -15,7 +15,8 @@ import ResetPassword from './components/Pages/all/resetPassword/ResetPassword';
 
 // CUSTOMER
 import Dashboard from './components/Pages/Customer/cus_dashboard/Dashboard';
-import UsersC from './components/Pages/Customer/cus_users/Users'
+import OrdersC from './components/Pages/Customer/cus_orders/Orders'
+import CartC from './components/Pages/Customer/cus_cart/Cart'
 
 
 // SELLER
@@ -52,8 +53,8 @@ function App() {
 
           {/* CUSTOMER ROUTES */}
           <Route path="/Cdashboard" element={<Dashboard />}></Route>
-          <Route path="/Cusers" element={<UsersC />}></Route>
-          {/* <Route path="/Csellers" element={<SellersC />}></Route> */}
+          <Route path="/Corders" element={<OrdersC />}></Route>
+          <Route path="/Ccart" element={<CartC />}></Route>
 
           {/* SELLER ROUTES */}
           {/* <Route path="/Scustomers" element={<CustomersS />}></Route> */}
