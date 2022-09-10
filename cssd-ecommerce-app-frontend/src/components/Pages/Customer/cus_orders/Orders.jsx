@@ -70,7 +70,7 @@ export default function Orders() {
             <div className='body-container'>
                 <HeaderS title="Items" />
                 <div className="content-container items">
-                    <div className="table-container">
+                    <div className="orders-table-container">
                         <MaterialTable
                             title="Items"
                             columns={[
@@ -90,11 +90,11 @@ export default function Orders() {
                                                 type="button"
                                                 className="btn mt-0"
                                                 style={{
-                                                    backgroundColor: "#ffbe0b",
+                                                    backgroundColor: "#00FF00",
                                                     border: "none",
                                                 }}
                                             >
-                                                Confirm
+                                                Delivered
                                             </button>
                                         );
                                     },
