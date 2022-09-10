@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react'
-import '../cus_sidebar/Sidebar.css'
-import SidebarO from '../cus_sidebar/Sidebar'
-import HeaderO from '../cus_header/header'
-import './Dashboard.css'
-import kitkat from '../../../../images/items/kitkat.jpg'
-import AddtoCart from '../../../../images/addToCart.svg'
+import React, { useEffect, useState } from "react";
+import "../cus_sidebar/Sidebar.css";
+import SidebarO from "../cus_sidebar/Sidebar";
+import HeaderO from "../cus_header/header";
+import "./Dashboard.css";
+import kitkat from "../../../../images/items/kitkat.jpg";
+import AddtoCart from "../../../../images/addToCart.svg";
+import TableIcons from "../../../Utilities/Tables/ReactTableIcons";
+import { getItems } from "../../../../services/ItemService";
 
 const Dashboard = () => {
-
   useEffect(() => {
     checkValidate();
+    getSellingItem();
   }, []);
 
   const checkValidate = async () => {
@@ -18,62 +20,55 @@ const Dashboard = () => {
       window.location.href = "/";
     }
   };
+  const getSellingItem = async () => {
+    const res = await getItems();
+    setOrderDetails(res.data);
+    console.log(res.data);
+  };
+
+  const [orderDetails, setOrderDetails] = useState([]);
 
   return (
-    <div className='main-container'>
+    <div className="main-container">
       <SidebarO />
-      <div className='body-container'>
+      <div className="body-container">
         <HeaderO title="Dasboard" />
         <div className="content-container">
+          <div className="adm-dashboard-card-container">
+            {orderDetails.map((record, i) => (
+              <div
+                className="adm-dashboard-card adm-dashboard-profile-cards"
+                key={i}
+              >
+                <div className="adm-dashboard-card-content">
+                  <div className="adm-dashboard-card-img-container">
+                    <img
+                      src={record.itemImage}
+                      className="adm-dashboard-images"
+                      alt=""
+                    />
+                  </div>
+                  <div className="staffID">{record.itemName}</div>
+                  <div className="staffName">{record.price}</div>
+                  <div className="staffName">{record.shopName}</div>
 
-          <div className='adm-dashboard-card-container'>
-
-            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-              <div className='adm-dashboard-card-img-container'>
-                <img src={kitkat} className='adm-dashboard-images' alt="" />
+                  <img
+                    src={AddtoCart}
+                    className="adm-dashboard-addtocart"
+                    alt=""
+                    onClick={() => {
+                      console.log(record.itemName + " " + record.itemId+" Added!");
+                      // To Do
+                    }}
+                  />
+                </div>
               </div>
-                <div className='staffID'>Kitkat Milk Chocolate  </div>
-                <div className='staffName'>Rs. 650</div>
-                <div className='staffName'>The ChocoShop</div>
-                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
-              </div>
-            </div>
-
-            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-              <div className='adm-dashboard-card-img-container'>
-                <img src={kitkat} className='adm-dashboard-images' alt="" />
-              </div>
-                <div className='staffID'>Kitkat Milk Chocolate  </div>
-                <div className='staffName'>Rs. 650</div>
-                <div className='staffName'>The ChocoShop</div>
-                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
-              </div>
-            </div>
-
-            <div className='adm-dashboard-card adm-dashboard-profile-cards'>
-              <div className='adm-dashboard-card-content'>
-              <div className='adm-dashboard-card-img-container'>
-                <img src={kitkat} className='adm-dashboard-images' alt="" />
-              </div>
-                <div className='staffID'>Kitkat Milk Chocolate  </div>
-                <div className='staffName'>Rs. 650</div>
-                <div className='staffName'>The ChocoShop</div>
-                <div className='add-to-cart'><img src={AddtoCart} className='adm-dashboard-addtocart' alt="" /></div>
-              </div>
-            </div>
-            
-
-            
-
+            ))}
           </div>
-
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
