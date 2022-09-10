@@ -17,6 +17,7 @@ import ResetPassword from './components/Pages/all/ResetPassword/ResetPassword';
 import Dashboard from './components/Pages/Customer/cus_dashboard/Dashboard';
 import OrdersC from './components/Pages/Customer/cus_orders/Orders'
 import CartC from './components/Pages/Customer/cus_cart/Cart'
+import PaymentC from './components/Pages/Customer/cus_payment/Payment'
 
 
 // SELLER
@@ -55,6 +56,7 @@ function App() {
           <Route path="/Cdashboard" element={<Dashboard />}></Route>
           <Route path="/Corders" element={<OrdersC />}></Route>
           <Route path="/Ccart" element={<CartC />}></Route>
+          <Route path="/Cpayment" element={<PaymentC />}></Route>
 
           {/* SELLER ROUTES */}
           {/* <Route path="/Scustomers" element={<CustomersS />}></Route> */}

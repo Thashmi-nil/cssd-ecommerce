@@ -3,9 +3,6 @@ import '../cus_sidebar/Sidebar.css'
 import SidebarS from '../cus_sidebar/Sidebar'
 import HeaderS from '../cus_header/header'
 import './Cart.css'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 import MaterialTable from "material-table";
@@ -115,7 +112,11 @@ export default function Orders() {
                     </div>
                     
                 </div>
-                <div className="pay-button"><button type="submit" class="btn btn-primary">Pay</button></div>
+                <div className="pay-button" >
+                  <Link to='/Cpayment'>
+                    <button type="submit" class="btn btn-primary">Pay</button>
+                  </Link>
+                </div>
             </div >
         </div >
     )
