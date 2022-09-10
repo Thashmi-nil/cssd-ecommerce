@@ -7,6 +7,8 @@ public class CartDetails {
     private String itemName;
     private Double price;
 
+    private long quantity;
+
     public long getCartId() {
         return cartId;
     }
@@ -45,5 +47,13 @@ public class CartDetails {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
     }
 }
