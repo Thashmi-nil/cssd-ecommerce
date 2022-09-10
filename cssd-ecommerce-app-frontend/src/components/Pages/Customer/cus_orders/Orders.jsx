@@ -68,11 +68,11 @@ export default function Orders() {
         <div className='main-container'>
             <SidebarS />
             <div className='body-container'>
-                <HeaderS title="Items" />
+                <HeaderS title="Orders" />
                 <div className="content-container items">
                     <div className="orders-table-container">
                         <MaterialTable
-                            title="Items"
+                            title="Orders"
                             columns={[
                                 { title: "Item ID", field: "ItemID" },
                                 { title: "Item Name", field: "ItemName" },
