@@ -1,4 +1,5 @@
 package com.cssd.cssdecommerceapp.controllers;
+import com.cssd.cssdecommerceapp.dto.SellerItem;
 import com.cssd.cssdecommerceapp.entities.Item;
 import com.cssd.cssdecommerceapp.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,13 @@ public class ItemController {
     ItemService itemService;
     
     @GetMapping("/getItems")
-    public List<Item> getAllUsers(){
+    public List<SellerItem> getAllUsers(){
         return itemService.getItems();
     }
 
-    @PostMapping("/addItem")
-    public long addItem(@RequestBody Item item){
-        return itemService.addItem(item);
+    @PostMapping("/addItem/{sellerId}")
+    public long addItem(@RequestBody Item item,@PathVariable long sellerId){
+        return itemService.addItem(item,sellerId);
     }
 
     @PutMapping("/updateItem")

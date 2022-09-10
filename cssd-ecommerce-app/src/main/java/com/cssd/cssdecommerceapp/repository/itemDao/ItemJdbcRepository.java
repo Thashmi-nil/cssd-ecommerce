@@ -1,5 +1,6 @@
 package com.cssd.cssdecommerceapp.repository.itemDao;
 
+import com.cssd.cssdecommerceapp.dto.SellerItem;
 import com.cssd.cssdecommerceapp.entities.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -17,24 +18,27 @@ public class ItemJdbcRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-    public List<Item> getItems() {
-        String query ="SELECT * from items where deleted=0";
+    public List<SellerItem> getItems() {
+        String query ="SELECT * from items " +
+                "INNER JOIN seller ON items.seller_id=seller.seller_id " +
+                "where deleted=0";
 
-        List<Item> items = jdbc.query(query, new BeanPropertyRowMapper<Item>(Item.class));
+        List<SellerItem> items = jdbc.query(query, new BeanPropertyRowMapper<SellerItem>(SellerItem.class));
         return items;
     }
 
-    public long addItem(Item item) {
+    public long addItem(Item item, long sellerId) {
         MapSqlParameterSource namedParameters =
                 new MapSqlParameterSource();
         String query = "INSERT INTO items " +
-                "(item_description, item_name,item_type,price,deleted) " +
-                "values (:item_description, :item_name, :item_type, :price, 0 )";
+                "(item_description, item_name,item_type,price,deleted,seller_id) " +
+                "values (:item_description, :item_name, :item_type, :price, 0,:sellerId )";
         System.out.println(item.getItemDescription());
         namedParameters.addValue("item_description", item.getItemDescription());
         namedParameters.addValue("item_name", item.getItemName());
         namedParameters.addValue("item_type", item.getItemType());
         namedParameters.addValue("price", item.getPrice());
+        namedParameters.addValue("sellerId", sellerId);
 
 
         int rowsAffected =jdbc.update(query , namedParameters);
@@ -46,7 +50,7 @@ public class ItemJdbcRepository {
         MapSqlParameterSource namedParameters = new MapSqlParameterSource();
         namedParameters.addValue("id", id);
 
-        String query = "Update items set deleted=1 where itemid = :id;";
+        String query = "Update items set deleted=1 where item_id = :id;";
 
         return jdbc.update(query, namedParameters);
 
@@ -57,7 +61,7 @@ public class ItemJdbcRepository {
                 new MapSqlParameterSource();
         String update = "UPDATE items " +
                 "SET item_description = :item_description, item_name = :item_name, item_type= :item_type, price= :price " +
-                "WHERE itemid = :id;";
+                "WHERE item_id = :id;";
 
         namedParameters.addValue("item_description", item.getItemDescription());
         namedParameters.addValue("item_name", item.getItemName());

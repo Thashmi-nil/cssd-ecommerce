@@ -1,5 +1,6 @@
 package com.cssd.cssdecommerceapp.services;
 
+import com.cssd.cssdecommerceapp.dto.SellerItem;
 import com.cssd.cssdecommerceapp.entities.Item;
 import com.cssd.cssdecommerceapp.repository.itemDao.ItemJdbcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,12 @@ import java.util.List;
 public class ItemService {
     @Autowired
     ItemJdbcRepository itemJdbcRepository;
-    public List<Item> getItems() {
+    public List<SellerItem> getItems() {
         return itemJdbcRepository.getItems();
     }
 
-    public long addItem(Item item) {
-        return itemJdbcRepository.addItem(item);
+    public long addItem(Item item, long sellerId) {
+        return itemJdbcRepository.addItem(item,sellerId);
     }
 
     public long updateItem(Item item){

@@ -42,6 +42,10 @@ public class Item {
     @OneToMany(mappedBy = "item")
     Set<OrderItems> orders;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "seller_id")
+    Seller seller;
+
     public long getItemId() {
         return itemId;
     }
@@ -106,5 +110,20 @@ public class Item {
         this.orders = orders;
     }
 
+    public long getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(long deleted) {
+        this.deleted = deleted;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
 
 }
