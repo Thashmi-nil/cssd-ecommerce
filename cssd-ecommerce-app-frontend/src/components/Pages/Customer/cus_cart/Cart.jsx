@@ -113,7 +113,9 @@ export default function Orders() {
                             }}
                         />
                     </div>
+                    
                 </div>
+                <div className="pay-button"><button type="submit" class="btn btn-primary">Pay</button></div>
             </div >
         </div >
     )
