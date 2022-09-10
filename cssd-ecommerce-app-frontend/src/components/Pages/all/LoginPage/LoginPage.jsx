@@ -34,7 +34,7 @@ const LoginPage = ({ loading, error, ...props }) => {
             window.location.href = "/Cdashboard";
             toast.success('successful');
         } else if (userLevel === "seller") {
-            window.location.href = "/Sdashboard";
+            window.location.href = "/Sitems";
         } else {
             localStorage.clear();
             // window.location.href = "/";

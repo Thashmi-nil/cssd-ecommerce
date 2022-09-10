@@ -34,24 +34,24 @@ const Sidebar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const menuItem = [
-        {
-            path: "/Sdashboard",
-            name: "Dashboard",
-            icon: <FaTh />
-        },
-        {
-            path: "/Scustomers",
-            name: "Customers",
-            icon: <FaUserTie />
-        },
-        {
-            path: "/Sdelivery",
-            name: "Delivery",
-            icon: <FaRegChartBar />
-        },
+        // {
+        //     path: "/Sdashboard",
+        //     name: "Dashboard",
+        //     icon: <FaTh />
+        // },
+        // {
+        //     path: "/Scustomers",
+        //     name: "Customers",
+        //     icon: <FaUserTie />
+        // },
         {
             path: "/Sitems",
             name: "Items",
+            icon: <FaRegChartBar />
+        },
+        {
+            path: "/Sorder",
+            name: "Order",
             icon: <FaRegChartBar />
         },
         {
