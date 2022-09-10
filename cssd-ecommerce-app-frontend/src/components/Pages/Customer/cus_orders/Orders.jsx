@@ -29,36 +29,42 @@ export default function Orders() {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
         {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
         {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
         {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
         {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
         {
             ItemID: "S001",
             ItemName: "Item 01",
             Price:"Rs. 550",
+            Seller: "The ChocoShop",
             Status: "Pending",
         },
 
@@ -77,6 +83,7 @@ export default function Orders() {
                                 { title: "Item ID", field: "ItemID" },
                                 { title: "Item Name", field: "ItemName" },
                                 { title: "Price", field: "Price" },
+                                { title: "Seller", field: "Seller" },
                                 { title: "Status", field: "Status" },
                             ]}
                             icons={TableIcons}
