@@ -19,10 +19,10 @@ import UsersC from './components/Pages/Customer/cus_users/Users'
 
 
 // SELLER
-import CustomersS from './components/Pages/Seller/sell_customers/Customer';
-import DashboardS from './components/Pages/Seller/sell_dashboard/Dashboard';
+// import CustomersS from './components/Pages/Seller/sell_customers/Customer';
+// import DashboardS from './components/Pages/Seller/sell_dashboard/Dashboard';
 import ItemsS from './components/Pages/Seller/sell_items/Items';
-import DeliveryS from './components/Pages/Seller/sell_delivery/Delivery';
+import OrderS from './components/Pages/Seller/sell_delivery/Delivery';
 
 
 import './App.css';
@@ -56,9 +56,9 @@ function App() {
           {/* <Route path="/Csellers" element={<SellersC />}></Route> */}
 
           {/* SELLER ROUTES */}
-          <Route path="/Scustomers" element={<CustomersS />}></Route>
-          <Route path="/Sdashboard" element={<DashboardS />}></Route>
-          <Route path="/Sdelivery" element={<DeliveryS />}></Route>
+          {/* <Route path="/Scustomers" element={<CustomersS />}></Route> */}
+          {/* <Route path="/Sdashboard" element={<DashboardS />}></Route> */}
+          <Route path="/Sorder" element={<OrderS />}></Route>
           <Route path="/Sitems" element={<ItemsS />}></Route>
 
         </Routes>
