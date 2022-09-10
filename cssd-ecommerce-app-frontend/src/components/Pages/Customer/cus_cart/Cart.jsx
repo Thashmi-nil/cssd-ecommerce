@@ -8,10 +8,13 @@ import { Link } from 'react-router-dom'
 import MaterialTable from "material-table";
 import TableIcons from '../../../Utilities/Tables/ReactTableIcons'
 
+import {getCart } from "../../../../services/CartService";
+
 export default function Orders() {
 
     useEffect(() => {
         checkValidate();
+        getMyCartData();
     }, []);
 
     const checkValidate = async () => {
@@ -20,46 +23,13 @@ export default function Orders() {
             window.location.href = "/";
         }
     };
+    const getMyCartData = async () => {
+        const res = await getCart(2);
+        setCartDetails(res.data);
+        console.log(res.data);
+      };
 
-    const [orderDetails] = useState([
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-        },
-
-    ]);
+    const [cartDetails,setCartDetails] = useState([]);
     return (
 
         <div className='main-container'>
@@ -71,13 +41,15 @@ export default function Orders() {
                         <MaterialTable
                             title="Cart"
                             columns={[
-                                { title: "Item ID", field: "ItemID" },
-                                { title: "Item Name", field: "ItemName" },
-                                { title: "Price", field: "Price" },
-                                { title: "Seller", field: "Seller" },
+                                { title: "Item ID", field: "itemId",hidden:true},
+                                { title: "Customer ID", field: "customerId",hidden:true},
+                                { title: "Cart ID", field: "cartId",hidden:true},
+                                { title: "Item Name", field: "itemName" },
+                                { title: "Price", field: "price" },
+                                { title: "Quantity", field: "quantity" },
                             ]}
                             icons={TableIcons}
-                            data={orderDetails}
+                            data={cartDetails}
                             actions={[
                                
                                 {
@@ -96,7 +68,8 @@ export default function Orders() {
                                         );
                                     },
                                     onClick: (event, rowData) => {
-
+                                        console.log("Item "+rowData.itemName+" "+rowData.itemName+"removed!")
+                                        // To Do 
                                     },
                                 },
 
