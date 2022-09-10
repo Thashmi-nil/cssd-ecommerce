@@ -90,11 +90,11 @@ export default function Orders() {
                                                 type="button"
                                                 className="btn mt-0"
                                                 style={{
-                                                    backgroundColor: "#00FF00",
+                                                    backgroundColor: "#bf0603",
                                                     border: "none",
                                                 }}
                                             >
-                                                Delivered
+                                                Remove
                                             </button>
                                         );
                                     },
