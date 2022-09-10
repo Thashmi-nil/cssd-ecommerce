@@ -28,8 +28,7 @@ const OAnnouncements = () => {
       <div className='body-container'>
         <HeaderO title="Payment" />
         <div className="own-announcement-content-container">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sapiente quod culpa, dolor minus ipsam dicta reiciendis repellat est autem, temporibus cupiditate quasi, sed necessitatibus animi obcaecati eaque reprehenderit labore?
-
+Payment form with Address (Location)
         </div>
 
       </div>

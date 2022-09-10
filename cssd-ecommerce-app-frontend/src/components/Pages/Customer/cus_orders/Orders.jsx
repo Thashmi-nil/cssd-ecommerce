@@ -11,10 +11,14 @@ import { Link } from 'react-router-dom'
 import MaterialTable from "material-table";
 import TableIcons from '../../../Utilities/Tables/ReactTableIcons'
 
+import {getMyOrders,setAsTake } from "../../../../services/OrderService";
+
+
 export default function Orders() {
 
     useEffect(() => {
         checkValidate();
+        getOrderItems();
     }, []);
 
     const checkValidate = async () => {
@@ -23,52 +27,13 @@ export default function Orders() {
             window.location.href = "/";
         }
     };
+    const getOrderItems = async () => {
+        const res = await getMyOrders(2);
+        setOrderDetails(res.data);
+        console.log(res.data);
+      };
 
-    const [orderDetails] = useState([
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-        {
-            ItemID: "S001",
-            ItemName: "Item 01",
-            Price:"Rs. 550",
-            Seller: "The ChocoShop",
-            Status: "Pending",
-        },
-
-    ]);
+    const [orderDetails,setOrderDetails] = useState([]);
     return (
 
         <div className='main-container'>
@@ -77,48 +42,64 @@ export default function Orders() {
                 <HeaderS title="Orders" />
                 <div className="content-container items">
                     <div className="orders-table-container">
+                       
                         <MaterialTable
-                            title="Orders"
-                            columns={[
-                                { title: "Item ID", field: "ItemID" },
-                                { title: "Item Name", field: "ItemName" },
-                                { title: "Price", field: "Price" },
-                                { title: "Seller", field: "Seller" },
-                                { title: "Status", field: "Status" },
-                            ]}
-                            icons={TableIcons}
-                            data={orderDetails}
-                            actions={[
-                               
-                                {
-                                    icon: () => {
-                                        return (
-                                            <button
-                                                type="button"
-                                                className="btn mt-0"
-                                                style={{
-                                                    backgroundColor: "#00FF00",
-                                                    border: "none",
-                                                }}
-                                            >
-                                                Delivered
-                                            </button>
-                                        );
-                                    },
-                                    onClick: (event, rowData) => {
+            title="Your Orders"
+            columns={[
+              { title: "Order ID", field: "orderID" },
+              { title: "Delivery Location", field: "location" },
+              { title: "Total Price", field: "totalPrice" },
+            ]}
+            icons={TableIcons}
+            data={orderDetails}
+            actions={[
+              {
+                icon: () => {
+                  return (
+                    <button
+                      type="button"
+                      className="btn mt-0"
+                      style={{
+                        backgroundColor: "#00FF00",
+                        border: "none",
+                      }}
+                    >
+                      Take
+                    </button>
+                  );
+                },
+                onClick: (event, rowData) => {
+                    setAsTake(rowData.orderID)
+                  window.location.href = "/Corders";
+                },
+              },
 
-                                    },
-                                },
-
-                            ]}
-                            options={{
-                                headerStyle: {
-                                    backgroundColor: '#1F0106',
-                                    color: '#FFF',
-                                    hover: '#FFF'
-                                }
-                            }}
-                        />
+              {
+                icon: () => {
+                  return (
+                    <button
+                      type="button"
+                      className="btn mt-0"
+                      style={{
+                        backgroundColor: "#00FF00",
+                        border: "none",
+                      }}
+                    >
+                      More
+                    </button>
+                  );
+                },
+                onClick: (event, rowData) => {},
+              },
+            ]}
+            options={{
+              headerStyle: {
+                backgroundColor: "#1F0106",
+                color: "#FFF",
+                hover: "#FFF",
+              },
+            }}
+          />
                     </div>
                 </div>
             </div >
