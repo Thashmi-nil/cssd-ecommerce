@@ -33,7 +33,7 @@ export default function Orders() {
       };
       const [amount,setAmount]=useState(0)
       const getAmountValue = async () => {
-        const res = await getAmount(4);
+        const res = await getAmount(5);
         setAmount(res.data);
         console.log(res.data);
       };

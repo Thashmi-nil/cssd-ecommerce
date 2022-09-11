@@ -20,7 +20,7 @@ const OAnnouncements = () => {
     }
   };
   const getAmountValue = async () => {
-    const res = await getAmount(4);
+    const res = await getAmount(5);
     setAmount(res.data);
     console.log(res.data);
   };
