@@ -6,7 +6,7 @@
 
 .table-container {
     height: 100%;
-    width: 60%;
+    width: 100%;
 }
 
 .item-form-container {
@@ -28,4 +28,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
+}
+
+.items-button{
+    margin-bottom: 20px;
+    margin-left: 1150px;
 }
