@@ -1,7 +1,6 @@
 package com.cssd.cssdecommerceapp.repository.cartDao;
 
 import com.cssd.cssdecommerceapp.dto.CartDetails;
-import com.cssd.cssdecommerceapp.entities.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,18 +32,15 @@ public class CartJdbcRepository {
 
     }
 
-    public long addCart(Item item) {
+    public long addCart(long item, long customerId) {
         MapSqlParameterSource namedParameters =
                 new MapSqlParameterSource();
         String query = "INSERT INTO cart " +
-                "(item_description, item_name,item_type,price,delete) " +
-                "values (:item_description, :item_name, :item_type, :price, 0 )";
+                "(customer_id) " +
+                "values (:customerId)";
 
-        namedParameters.addValue("item_description", item.getItemDescription());
-        namedParameters.addValue("item_name", item.getItemName());
-        namedParameters.addValue("item_type", item.getItemType());
-        namedParameters.addValue("price", item.getPrice());
-
+        namedParameters.addValue("cartId", item);
+        namedParameters.addValue("customerId", customerId);
 
         int rowsAffected = jdbc.update(query , namedParameters);
         return rowsAffected;
@@ -55,6 +51,53 @@ public class CartJdbcRepository {
         namedParameters.addValue("id", id);
 
         String query = "Update items set deleted=1 where itemid = :id;";
+
+        return jdbc.update(query, namedParameters);
+    }
+
+    public long checkExists(long customerId) {
+        System.out.println("customerId->"+customerId);
+        String sql = "SELECT cart_id from cart where customer_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] { customerId }, Integer.class);
+    }
+
+    public long checkExistsInCartItem(long existsInCart, long item) {
+        String sql = "SELECT cart_id from cart_items where cart_id = ? AND item_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] { existsInCart,item }, Integer.class);
+    }
+
+    public long increaseCartItemCount(long item, long existsInCart) {
+//        ToDo : update item count in cart_items
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        namedParameters.addValue("item", item);
+        namedParameters.addValue("existsInCart", existsInCart);
+//        get current count
+
+        String sql = "SELECT quantity from cart_items where cart_id = ? AND item_id = ?";
+        long newQuantity=jdbcTemplate.queryForObject(sql, new Object[] { existsInCart,item }, Integer.class)+1;
+        namedParameters.addValue("newQuantity", newQuantity);
+
+        String query = "Update cart_items set quantity=:newQuantity where cart_id=:existsInCart AND item_id = :item;";
+
+        return jdbc.update(query, namedParameters);
+    }
+
+    public long addCartItem(long item, long existsInCart) {
+        return 0;
+    }
+
+    public long decreaseCartItemCount(long itemId, long existsInCart) {
+        //        ToDo : update item count in cart_items
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        namedParameters.addValue("item", itemId);
+        namedParameters.addValue("existsInCart", existsInCart);
+//        get current count
+
+        String sql = "SELECT quantity from cart_items where cart_id = ? AND item_id = ?";
+        long newQuantity=jdbcTemplate.queryForObject(sql, new Object[] { existsInCart,itemId }, Integer.class)-1;
+        namedParameters.addValue("newQuantity", newQuantity);
+
+        String query = "Update cart_items set quantity=:newQuantity where cart_id=:existsInCart AND item_id = :item;";
 
         return jdbc.update(query, namedParameters);
     }
