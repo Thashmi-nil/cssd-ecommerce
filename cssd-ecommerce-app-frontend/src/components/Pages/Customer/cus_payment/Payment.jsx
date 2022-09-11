@@ -51,6 +51,7 @@ const OAnnouncements = () => {
     <div className='main-container'>
       <SidebarO />
       <div className='body-container'>
+        <div className='content-container'>
         <HeaderO title="Payment" />
         <div className="own-announcement-content-container" >
         <div className="item-form-container" >
@@ -177,7 +178,7 @@ const OAnnouncements = () => {
                   </div>
             </div>
         </div>
-
+        </div>
       </div>
     </div>
   )
