@@ -1,37 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@300;400;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    
+
 }
-.sb-container{
-    display:flex;
+
+.sb-container {
+    display: flex;
     background: #1F0106;
 }
-main{
+
+main {
     /* width: 100%; */
     padding: 20px;
-    
+
 }
-.sidebar{
+
+.sidebar {
     background: #1F0106;
     color: #fff;
     height: 100vh;
     width: 200px;
     transition: all 0.5s;
-   
-   
+
+
 }
-.top_section{
+
+.top_section {
     display: flex;
-    align-items:center;
-    padding:20px 15px;
+    align-items: center;
+    padding: 20px 15px;
     gap: 20px;
 }
-.logo{
+
+.logo {
     height: 5rem;
     display: flex;
     /* font-weight: bold; */
@@ -41,59 +46,71 @@ main{
     justify-content: center;
     height: 4%;
 }
-.logo>img{
+
+.logo>img {
     width: 3.5rem;
     height: 3rem;
 }
-.logo>span{
+
+.logo>span {
     font-size: 12px;
 }
-.h1{
+
+.h1 {
     font-size: 30px;
     color: #fff;
 }
-.bars{
+
+.bars {
     display: flex;
     font-size: 15px;
     margin-left: 50px;
-    
+
 }
-.link{
+
+.link {
     display: flex;
     color: #fff;
     padding: 10px 15px;
     gap: 15px;
     transition: all 0.5s;
-    
+    text-decoration: none;
 }
-.link:hover{
-    background:#FF2121;
+
+.link:hover {
+    background: #FF2121;
     color: #000;
     border-radius: 5px;
     transition: all 0.5s;
     text-decoration: none;
 }
-.active{
+
+.active {
     background: #FF2121;
     color: #000;
-    border-radius: 5px;   
+    border-radius: 5px;
 }
-.icon, .link_text{
+
+.icon,
+.link_text {
     font-size: 15px;
     line-height: 30px;
 }
-.main-container{
+
+.main-container {
     display: flex;
     background-color: #D9D9D9;
     padding: 0px;
 
 }
-.content-container{
+
+.content-container {
     padding: 22px;
     background-color: #D9D9D9;
     width: 100%;
 }
-.body-container{
+
+.body-container {
     padding-left: 15px;
     padding-right: 20px;
 }
