@@ -1,5 +1,6 @@
 package com.cssd.cssdecommerceapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Payment {
     private String type;
 
     @Column(name = "date")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @CreationTimestamp
     private Date date;
 
