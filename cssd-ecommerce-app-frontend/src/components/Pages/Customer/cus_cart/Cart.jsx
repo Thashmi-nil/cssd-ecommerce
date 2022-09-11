@@ -43,7 +43,7 @@ export default function Orders() {
 
         <div className='main-container'>
             {/* <SidebarS /> */}
-            <div className='body-container'>
+            <div className='cart-body-container'>
                 {/* <HeaderS title="Cart" /> */}
                 {/* <div className="content-container"> */}
                 
