@@ -36,13 +36,13 @@ const Dashboard = () => {
       <div className="body-container">
         <HeaderO title="Dasboard" />
         <div className="content-container">
-          <div className="adm-dashboard-card-container">
+          {/* <div className="adm-dashboard-card-container"> */}
             {orderDetails.map((record, i) => (
               <div
                 className="adm-dashboard-card adm-dashboard-profile-cards"
                 key={i}
               >
-                <div className="adm-dashboard-card-content">
+                {/* <div className="adm-dashboard-card-content"> */}
                   <div className="adm-dashboard-card-img-container">
                     <img
                       src={record.itemImage}
@@ -66,10 +66,10 @@ const Dashboard = () => {
                       // To Do
                     }}
                   />
-                </div>
+                {/* </div> */}
               </div>
             ))}
-          </div>
+          {/* </div> */}
 
           <Orders/>
         </div>

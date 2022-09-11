@@ -63,6 +63,7 @@ export default function Trainers() {
         <HeaderS title="Items" />
         <div className="content-container items">
           <div className="table-container">
+            <div className="items-button">
             <button
               type="button"
               className="btn mt-0"
@@ -75,6 +76,8 @@ export default function Trainers() {
             >
               ADD
             </button>
+            </div>
+            <div className="orders-table-container">
             <MaterialTable
               title="Items"
               columns={[
@@ -145,6 +148,7 @@ export default function Trainers() {
                 },
               }}
             />
+            </div>
           </div>
           {selectededit && (
             <div className="item-form-container">

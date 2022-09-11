@@ -50,7 +50,8 @@ const OAnnouncements = () => {
       <SidebarO />
       <div className="body-container">
         <HeaderO title="Delivery" />
-        <div className="own-announcement-content-container">
+        <div className="content-container">
+        <div className="delivery-table-container">
           <MaterialTable
             title="New Orders"
             columns={[
@@ -107,8 +108,9 @@ const OAnnouncements = () => {
                 hover: "#FFF",
               },
             }}
-          />
+          /></div>
 
+          <div className="delivery-table-container">
           <MaterialTable
             title="Previous Orders"
             columns={[
@@ -162,7 +164,7 @@ const OAnnouncements = () => {
                 hover: "#FFF",
               },
             }}
-          />
+          /></div>
         </div>
       </div>
     </div>
