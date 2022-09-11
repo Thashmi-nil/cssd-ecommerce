@@ -165,7 +165,8 @@ const OAnnouncements = () => {
                           <button type="submit" class="btn btn-primary" style={{width:"100px"}}
                           onClick={()=>{
                             console.log(amount+" paid success!");
-                            makePayment(4,amount,2);
+                            makePayment(5,amount,2);
+                            window.location.href = "/Cpayment";
                           }}
                           
                           >Pay</button>

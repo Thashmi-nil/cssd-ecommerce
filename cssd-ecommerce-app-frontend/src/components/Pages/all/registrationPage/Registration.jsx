@@ -178,39 +178,13 @@ export default function Registration() {
                                         <input type="radio" className='form-radio' value="F" name="gender" style={{ marginLeft: '10px' }} /> Female
                                     </div>
                                     {!requestData.gender && click && <span className='text-danger'>This Field is required</span>}
-
-                                    {/* <Radiobutton
-                                    value={gender}
-                                    name='gender'
-                                    type='radio'
-                                    label="selectedOption"
-                                    // validators={[
-                                    //   { check: Validators.required, message: 'Select an option' }
-                                    // ]}
-                                    onChange={handleRadio('gender')} /> */}
-
-                                    {/* <Dropdown
-                                        data={[
-                                            { value: "M", label: 'Male' },
-                                            { value: "F", label: 'Female' },
-                                        ]}
-                                        label="Gender"
-                                        // styleClass='mt-3'
-                                        value={requestData.gender}
-                                        placeholder='Select Gender'
-                                        onChange={handleDropdown}
-                                    /><br></br> */}
-
-                                    {/* <InputField
-                                        value={message}
-                                        type='textarea'
-                                        placeholder='Enter message!'
-                                        validators={[
-                                            { check: Validators.required, message: 'This field is required' }
-                                        ]}
-                                        onChange={this.handleChange('message')} />
-                                    <br></br> */}
                                 </div>
+                                <div className="reg-form-col1">
+                                    <label> Type</label>
+                                    <div className="radio-div" >
+                                        <input type="radio" className='form-radio' value="M" name="t" /> Buyer
+                                        <input type="radio" className='form-radio' value="F" name="t" style={{ marginLeft: '10px' }} /> Seller
+                                </div></div>
                                 <div className="reg-form-col2">
                                     <InputField
                                         value={requestData.occupation}

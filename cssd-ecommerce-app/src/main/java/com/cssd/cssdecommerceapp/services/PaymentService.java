@@ -12,7 +12,7 @@ public class PaymentService {
 //        ToDO : First need to add orders after that pay
         paymentJdbcRepository.addToOrderList(cartId,customerId,amount);
         paymentJdbcRepository.removeFromCart(cartId);
-//        String success= paymentJdbcRepository.makePayment(cartId,amount);
+        String success= paymentJdbcRepository.makePayment(cartId,amount);
         return "success";
     }
 

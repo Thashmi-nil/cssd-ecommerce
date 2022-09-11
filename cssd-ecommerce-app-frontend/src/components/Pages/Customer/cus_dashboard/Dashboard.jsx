@@ -36,7 +36,7 @@ const Dashboard = () => {
       <div className="body-container">
         <HeaderO title="Dasboard" />
         <div className="content-container">
-          {/* <div className="adm-dashboard-card-container"> */}
+          <div className="adm-dashboard-card-container">
             {orderDetails.map((record, i) => (
               <div
                 className="adm-dashboard-card adm-dashboard-profile-cards"
@@ -69,10 +69,11 @@ const Dashboard = () => {
                 {/* </div> */}
               </div>
             ))}
-          {/* </div> */}
+          </div>
 
-          <Orders/>
+          
         </div>
+        <Orders/>
       </div>
     </div>
   );

@@ -64,7 +64,8 @@ public class PaymentJdbcRepository {
 //        get newly added order id
         System.out.println("customerId->"+customerId);
         String sql = "SELECT orderId from orders where customer_id = ?";
-        long oId=jdbcTemplate.queryForObject(sql, new Object[] { customerId }, Integer.class);
+        long oId=13;
+//                jdbcTemplate.queryForObject(sql, new Object[] { customerId }, Integer.class);
 
 
         String query2 ="SELECT * FROM cart_items " +
