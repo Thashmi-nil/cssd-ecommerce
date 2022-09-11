@@ -45,14 +45,15 @@ export default function Orders() {
             {/* <SidebarS /> */}
             <div className='body-container'>
                 {/* <HeaderS title="Cart" /> */}
-                <div className="content-container items">
+                {/* <div className="content-container"> */}
                 
-                    <div className="orders-table-container">
+                    {/* <div className="cart-table-container"> */}
                     <div className="pay-button" >
                   <Link to='/Cpayment'>
                     <button type="submit" class="btn btn-primary" style={{width:"75px"}}>Pay {amount}</button>
                   </Link>
                 </div>
+
                         <MaterialTable
                             title="Cart"
                             columns={[
@@ -99,9 +100,9 @@ export default function Orders() {
                                 }
                             }}
                         />
-                    </div>
+                    {/* </div> */}
                     
-                </div>
+                {/* </div> */}
                 
             </div >
         </div >
