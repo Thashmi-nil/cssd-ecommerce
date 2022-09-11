@@ -31,7 +31,7 @@ const Sidebar = ({ children }) => {
         }
     };
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     const menuItem = [
         // {
@@ -79,13 +79,13 @@ const Sidebar = ({ children }) => {
     };
     return (
         <div className="sb-container">
-            <div style={{ width: isOpen ? "220px" : "50px", padding: isOpen ? "0px 18px 0px 18px" : "0px" }} className="sidebar">
+            <div style={{ width: isOpen ? "220px" : "220px", padding: isOpen ? "0px 18px 0px 18px" : "0px" }} className="sidebar">
                 <div className="top_section">
                     <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
                         <img src={logo} alt="" />
                     </h1>
                     <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
-                        <FaBars onClick={toggle} />
+                       
                     </div>
                 </div>
                 {
