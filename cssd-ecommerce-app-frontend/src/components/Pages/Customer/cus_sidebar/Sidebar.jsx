@@ -35,11 +35,11 @@ const Sidebar = ({ children }) => {
             name: "Dashboard",
             icon: <FaTh />
         },
-        {
-            path: "/Ccart",
-            name: "Cart",
-            icon: <FaUserAlt />
-        },
+        // {
+        //     path: "/Ccart",
+        //     name: "Cart",
+        //     icon: <FaUserAlt />
+        // },
         {
             path: "/Corders",
             name: "Orders",

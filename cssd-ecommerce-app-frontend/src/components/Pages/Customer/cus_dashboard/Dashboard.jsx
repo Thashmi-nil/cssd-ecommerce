@@ -7,6 +7,8 @@ import kitkat from "../../../../images/items/kitkat.jpg";
 import AddtoCart from "../../../../images/addToCart.svg";
 import TableIcons from "../../../Utilities/Tables/ReactTableIcons";
 import { getItems } from "../../../../services/ItemService";
+import { addToCart} from "../../../../services/CartService";
+import Orders from "../cus_cart/Cart";
 
 const Dashboard = () => {
   useEffect(() => {
@@ -46,6 +48,7 @@ const Dashboard = () => {
                       src={record.itemImage}
                       className="adm-dashboard-images"
                       alt=""
+                      style={{width:"150px",height:"150px"}}
                     />
                   </div>
                   <div className="staffID">{record.itemName}</div>
@@ -58,6 +61,8 @@ const Dashboard = () => {
                     alt=""
                     onClick={() => {
                       console.log(record.itemName + " " + record.itemId+" Added!");
+                      addToCart(record.itemId,2);
+                      window.location.href = "/Cdashboard";
                       // To Do
                     }}
                   />
@@ -65,6 +70,8 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
+
+          <Orders/>
         </div>
       </div>
     </div>

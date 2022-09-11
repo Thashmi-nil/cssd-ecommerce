@@ -94,7 +94,7 @@ export default function Orders() {
             ]}
             options={{
               headerStyle: {
-                backgroundColor: "#1F0106",
+                backgroundColor: "blue",
                 color: "#FFF",
                 hover: "#FFF",
               },

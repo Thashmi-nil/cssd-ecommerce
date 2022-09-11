@@ -5,30 +5,20 @@ const getToken = () => {
     return localStorage.getItem("USER_KEY");
 };
 
-export const getCart= (id) => {
+export const getAmount= (cartId) => {
     return axios({
         method: "GET",
-        url: `${USER_URL}/getCart/${id}`,
+        url: `${USER_URL}/getAmount/${cartId}`,
         headers: {
             Authorization: "Bearer " + getToken(),
         },
     });
 };
 
-export const addToCart= (id,customer) => {
+export const makePayment= (cartId,amount,customerId) => {
     return axios({
         method: "POST",
-        url: `${USER_URL}/addCart/${id}/${customer}`,
-        headers: {
-            Authorization: "Bearer " + getToken(),
-        },
-    });
-};
-
-export const deleteFromCart= (id,customer) => {
-    return axios({
-        method: "DELETE",
-        url: `${USER_URL}/deleteCart/${id}/${customer}`,
+        url: `${USER_URL}/makePayment/${cartId}/${amount}/${customerId}`,
         headers: {
             Authorization: "Bearer " + getToken(),
         },

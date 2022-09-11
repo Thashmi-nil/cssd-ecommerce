@@ -8,13 +8,16 @@ import { Link } from 'react-router-dom'
 import MaterialTable from "material-table";
 import TableIcons from '../../../Utilities/Tables/ReactTableIcons'
 
-import {getCart } from "../../../../services/CartService";
+import {getCart,deleteFromCart} from "../../../../services/CartService";
+import {getAmount } from "../../../../services/PaymentService";
 
 export default function Orders() {
 
     useEffect(() => {
         checkValidate();
         getMyCartData();
+        getAmountValue();
+
     }, []);
 
     const checkValidate = async () => {
@@ -28,16 +31,28 @@ export default function Orders() {
         setCartDetails(res.data);
         console.log(res.data);
       };
+      const [amount,setAmount]=useState(0)
+      const getAmountValue = async () => {
+        const res = await getAmount(4);
+        setAmount(res.data);
+        console.log(res.data);
+      };
 
     const [cartDetails,setCartDetails] = useState([]);
     return (
 
         <div className='main-container'>
-            <SidebarS />
+            {/* <SidebarS /> */}
             <div className='body-container'>
-                <HeaderS title="Cart" />
+                {/* <HeaderS title="Cart" /> */}
                 <div className="content-container items">
+                
                     <div className="orders-table-container">
+                    <div className="pay-button" >
+                  <Link to='/Cpayment'>
+                    <button type="submit" class="btn btn-primary" style={{width:"75px"}}>Pay {amount}</button>
+                  </Link>
+                </div>
                         <MaterialTable
                             title="Cart"
                             columns={[
@@ -68,7 +83,9 @@ export default function Orders() {
                                         );
                                     },
                                     onClick: (event, rowData) => {
-                                        console.log("Item "+rowData.itemName+" "+rowData.itemName+"removed!")
+                                        console.log("Item "+rowData.itemId+" "+rowData.itemName+"removed!")
+                                        deleteFromCart(rowData.itemId,2)
+                                        window.location.href = "/Cdashboard";
                                         // To Do 
                                     },
                                 },
@@ -85,11 +102,7 @@ export default function Orders() {
                     </div>
                     
                 </div>
-                <div className="pay-button" >
-                  <Link to='/Cpayment'>
-                    <button type="submit" class="btn btn-primary">Pay</button>
-                  </Link>
-                </div>
+                
             </div >
         </div >
     )
