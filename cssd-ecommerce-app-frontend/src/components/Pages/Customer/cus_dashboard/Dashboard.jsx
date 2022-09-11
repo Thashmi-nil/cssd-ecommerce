@@ -7,7 +7,7 @@ import kitkat from "../../../../images/items/kitkat.jpg";
 import AddtoCart from "../../../../images/addToCart.svg";
 import TableIcons from "../../../Utilities/Tables/ReactTableIcons";
 import { getItems } from "../../../../services/ItemService";
-import { addToCart} from "../../../../services/CartService";
+import { addToCart } from "../../../../services/CartService";
 import Orders from "../cus_cart/Cart";
 
 const Dashboard = () => {
@@ -43,29 +43,29 @@ const Dashboard = () => {
                 key={i}
               >
                 {/* <div className="adm-dashboard-card-content"> */}
-                  <div className="adm-dashboard-card-img-container">
-                    <img
-                      src={record.itemImage}
-                      className="adm-dashboard-images"
-                      alt=""
-                      style={{width:"150px",height:"150px"}}
-                    />
-                  </div>
-                  <div className="staffID">{record.itemName}</div>
-                  <div className="staffName">{record.price}</div>
-                  <div className="staffName">{record.shopName}</div>
-
+                <div className="adm-dashboard-card-img-container">
                   <img
-                    src={AddtoCart}
-                    className="adm-dashboard-addtocart"
+                    src={record.itemImage}
+                    className="adm-dashboard-images"
                     alt=""
-                    onClick={() => {
-                      console.log(record.itemName + " " + record.itemId+" Added!");
-                      addToCart(record.itemId,2);
-                      window.location.href = "/Cdashboard";
-                      // To Do
-                    }}
+                    style={{ width: "150px", height: "150px" }}
                   />
+                </div>
+                <div className="staffID">{record.itemName}</div>
+                <div className="staffName">{record.price}</div>
+                <div className="staffName">{record.shopName}</div>
+
+                <img
+                  src={AddtoCart}
+                  className="adm-dashboard-addtocart"
+                  alt=""
+                  onClick={() => {
+                    console.log(record.itemName + " " + record.itemId + " Added!");
+                    addToCart(record.itemId, 2);
+                    window.location.href = "/Cdashboard";
+                    // To Do
+                  }}
+                />
                 {/* </div> */}
               </div>
             ))}
