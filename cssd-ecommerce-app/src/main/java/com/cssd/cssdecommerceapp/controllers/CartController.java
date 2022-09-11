@@ -20,14 +20,15 @@ public class CartController {
         return cartService.getCart(id);
     }
 
-    @PostMapping("/addCart")
-    public long addItem(Item item){
-        return cartService.addCart(item);
+    @PostMapping("/addCart/{itemId}/{customerId}")
+    public long addItem(@PathVariable long itemId,@PathVariable long customerId){
+        System.out.println(itemId+" "+customerId);
+        return cartService.addCart(itemId,customerId);
     }
 
-    @DeleteMapping("/deleteCart/{id}")
-    public long deleteItem(@PathVariable long id){
-        return cartService.deleteCart(id);
+    @DeleteMapping("/deleteCart/{itemId}/{customerId}")
+    public long deleteItem(@PathVariable long itemId,@PathVariable long customerId){
+        return cartService.deleteCart(itemId,customerId);
     }
 
 }
